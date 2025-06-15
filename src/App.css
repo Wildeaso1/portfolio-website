@@ -1,6 +1,12 @@
+.content {
+  min-height: 100vh;
+  background-color: #262131;
+}
+
 .App {
   text-align: center;
 }
+
 
 .App-logo {
   height: 40vmin;

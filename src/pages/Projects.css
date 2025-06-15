@@ -1,0 +1,38 @@
+.projects {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    
+  }
+  
+  .projects h1 {
+    margin-bottom: 40px;
+  }
+  
+  .tags {
+    margin-bottom: 30px;
+  }
+  
+  .tag-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .tag-btn:hover,
+  .tag-btn.active {
+    background-color: #6a3c6b;
+    color: #fff;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding-bottom: 60px; /* Ensures space below for the footer */
+  }

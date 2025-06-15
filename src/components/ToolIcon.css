@@ -1,0 +1,17 @@
+.tool-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    justify-content: center;
+    transition: transform 0.2s, opacity 0.2s;
+    cursor: pointer;
+  }
+  
+  .tool-icon:hover {
+    transform: scale(1.4);
+    opacity: 0.8;
+  }
+  
+  .tool-icon img {
+    object-fit: contain;
+  }

@@ -1,0 +1,82 @@
+.project-card {
+  background: #302a37;
+  border: 1px solid #ddd;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-image-container {
+  width: 100%;
+  height: 200px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1925;
+  color: #fff;
+  font-style: italic;
+}
+
+.project-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.project-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.project-content p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.project-tags {
+  margin-bottom: 15px;
+}
+
+.project-tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  margin: 3px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.project-tools {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.learn-more {
+  display: inline-block;
+  text-decoration: none;
+  color: #ff5733;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  margin-top: 10px;
+}
+
+.learn-more:hover {
+  color: #e04e2b;
+}

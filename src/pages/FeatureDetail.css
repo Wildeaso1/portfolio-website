@@ -1,0 +1,301 @@
+/* src/components/FeatureDetail.css */
+
+/* Overall Content Padding */
+.content {
+  padding-top: 2%;
+}
+
+/* Feature Detail Section */
+.feature-detail {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white; /* Ensure text is visible against background */
+  background-color: #1d1925; /* Optional: Background color for better contrast */
+  border-radius: 10px;
+}
+
+/* Feature Title */
+.feature-container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+/* Feature Description Paragraph */
+.feature-container p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Image Carousel Container */
+.image-carousel {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.3s;
+  z-index: 1;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Positioning of Left and Right Buttons */
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+/* Feature Image Styling */
+.feature-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Placeholder for Missing Images */
+.no-image-placeholder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: #2d2d2d; /* Darker background for better visibility */
+  border-radius: 10px;
+}
+
+/* Code Snippets Section */
+.code-snippets {
+  margin-top: 30px;
+  background: #1d1925;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Snippet Tabs Container */
+.snippet-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+/* Individual Tab Buttons */
+.tab-button {
+  background: none;
+  border: 1px solid #6a3c6b;
+  color: #6a3c6b;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background-color: #6a3c6b;
+  color: white;
+}
+
+/* Snippet Content Container */
+.snippet-content {
+  /* Optional: Add any specific styles if needed */
+}
+
+/* Description Section Container */
+.snippet-description {
+  margin-bottom: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Toggle Description Button */
+.toggle-description-button {
+  background: #6a3c6b;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  font-size: 0.9rem;
+}
+
+.toggle-description-button:hover {
+  background: #ff77a9;
+}
+
+/* Description Text Styling */
+.description-text {
+  margin-top: 10px;
+  background: #2d2d2d;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #ffffff;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Code Snippet Title */
+.snippet-content h3 {
+  margin-bottom: 10px;
+  color: #ff77a9;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Code Block Styling */
+.snippet-content pre {
+  background: #2d2d2d;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  color: #ffffff; /* Adjust text color for better contrast */
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Back Link Styling */
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  color: #6a3c6b;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+}
+
+.back-link:hover {
+  color: #ff77a9;
+}
+
+/* PrismJS Token Customizations (Optional) */
+.token {
+  text-shadow: none;
+  display: inline;
+}
+
+.token.operator {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.token.text {
+  text-shadow: none;
+}
+
+.token.Variables {
+  color: rgb(241, 241, 241); /* Or any color you prefer */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .feature-detail {
+    padding: 40px 15px;
+  }
+
+  .feature-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-button {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .snippet-description {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description-text {
+    font-size: 0.9rem;
+  }
+
+  .snippet-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .snippet-content pre {
+    font-size: 0.9rem;
+  }
+
+  .toggle-description-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-detail {
+    padding: 30px 10px;
+  }
+
+  .feature-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-button {
+    font-size: 18px;
+    padding: 6px;
+  }
+
+  .tab-button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .toggle-description-button {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .description-text {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .snippet-content h3 {
+    font-size: 1rem;
+  }
+
+  .snippet-content pre {
+    font-size: 0.85rem;
+  }
+}

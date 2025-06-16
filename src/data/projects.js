@@ -1,26 +1,18 @@
-import { projectStarfall } from './Projects/starfall';
+import { projectProjectStarfall } from './Projects/starfall';
 import { projectAlienAbductors } from './Projects/alienabductors';
 import { TestingProject } from './Projects/testing';
 
 export const projectsData = [
-  projectStarfall,
+  projectProjectStarfall,
   projectAlienAbductors,
-  TestingProject,
-  // Add new projects here
+  TestingProject
 ];
 
-export const getUniqueTags = (projects) => {
+export const getUniqueTags = (projects) =>
+{
   const allTags = projects.flatMap((project) => project.tags || []);
   const uniqueTagsSet = new Set(allTags);
-  return [...uniqueTagsSet];
+  return [ ...uniqueTagsSet ];
 };
 
-// Get unique tags from actual project data, without adding 'all'
 export const uniqueTags = getUniqueTags(projectsData);
-
-// Add this at the bottom of your projects.js file temporarily
-console.log("Project Data:", projectsData);
-console.log("Unique Tags:", uniqueTags);
-projectsData.forEach(project => {
-  console.log(`Project ${project.id}: Tags =`, project.tags);
-});

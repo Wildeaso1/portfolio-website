@@ -95,10 +95,9 @@ const About = () => {
     { name: "Photoshop", key: "Photoshop", class: '2D' },
     { name: "Illustrator", key: "Illustrator", class: "2D" }
   ];
-
-  // Update the image path to use an absolute path
+  // Update the image path to use the correct GitHub Pages path
   const aboutImages = [
-    "/images/Logo.jpg",
+    `${process.env.PUBLIC_URL}/images/Logo.jpg`,
   ];
 
   useEffect(() => {

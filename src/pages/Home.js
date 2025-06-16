@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getImagePath } from '../utils/imageUtils';
 import './Home.css';
+import homeBg from '../images/home-bg.gif';
 
 const Home = () => {
-  const homeBg = getImagePath('home-bg.gif');
-
   return (
     <section className="home" style={{ backgroundImage: `url(${homeBg})` }}>
       <div className="home-content">

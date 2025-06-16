@@ -3,7 +3,7 @@ export const TestingProject = {
     title: 'Testing Project',
     description: "This is a test project to check the loading of JSON files.",
     headerImage: '',
-    images: [ '' ],
+    images: [],
     tags: [ 'Game', '2D' , 'Photoshop' ],
     tools: [ 'C#', 'Photoshop' ],
     toolIcons: [ 'C#', 'Photoshop' ],

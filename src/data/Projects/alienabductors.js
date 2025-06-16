@@ -3,7 +3,7 @@ export const projectAlienAbductors = {
     title: 'Alien Abductors',
     description: "Alien Abductors is a clone of Space Invaders, the clone follows the same principle with a different art-style.",
     headerImage: '',
-    images: [''],
+    images: [],
     tags: ['Javascript', 'Game', '2D', 'Photoshop'],
     tools: ['Javascript', 'Photoshop', 'Gitlab'],
     toolIcons: ['Javascript', 'Photoshop', 'Gitlab'],

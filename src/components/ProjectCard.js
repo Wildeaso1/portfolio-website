@@ -11,12 +11,15 @@ const ProjectCard = ({ project }) => {
   const handleImageError = () => {
     setIsImageError(true);
   };
-
-  // Simple image path - just use PUBLIC_URL + the original path
-  const imagePath = project.headerImage ? `${process.env.PUBLIC_URL}${project.headerImage}` : null;
+  // Simple direct path for public folder images
+  const getImagePath = () => {
+    if (!project.headerImage || project.headerImage.trim() === '') {
+      return null;
+    }
+    return `${process.env.PUBLIC_URL}${project.headerImage}`;
+  };
   
-  // Debug: log the image path (remove this after testing)
-  console.log('Project:', project.title, 'Original path:', project.headerImage, 'Generated path:', imagePath);
+  const imagePath = getImagePath();
 
   return (
     <div className="project-card">      <div className="project-image-container">

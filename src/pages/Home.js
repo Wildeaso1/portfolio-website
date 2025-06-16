@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { getImagePath } from '../utils/imageUtils';
 import './Home.css';
-import homeBg from '../images/home-bg.gif'; // Assuming the image is in src/images/
 
 const Home = () => {
+  const homeBg = getImagePath('home-bg.gif');
+
   return (
     <section className="home" style={{ backgroundImage: `url(${homeBg})` }}>
       <div className="home-content">
@@ -12,10 +15,9 @@ const Home = () => {
         </p>
         <p>
         I have extensive knowledge about both the coding side, and art side of game development
-        </p>
-        <a href="/projects" className="btn">
+        </p>        <Link to="/projects" className="btn">
           View My Projects
-        </a>
+        </Link>
       </div>
     </section>
   );

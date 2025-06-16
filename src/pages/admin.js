@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { projectsData } from '../data/projects';
 import { generateIndividualProjectFile, generateProjectsIndexFile } from '../utils/projectFileGenerator';
+import toolIcons from '../config/ToolIcons';
+import availableTags from '../data/tags';
+import Login from '../components/Login';
 import './Admin.css';
 
 const Admin = () => {
@@ -8,10 +11,68 @@ const Admin = () => {
   const [currentProject, setCurrentProject] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  
+  // Available options for dropdowns
+  const availableTools = Object.keys(toolIcons);
 
   useEffect(() => {
+    // Check if user is already authenticated
+    checkAuthentication();
     setProjects(projectsData);
   }, []);
+
+  const checkAuthentication = () => {
+    try {
+      const authData = localStorage.getItem('adminAuth');
+      if (authData) {
+        const parsedAuth = JSON.parse(authData);
+        const now = Date.now();
+        
+        // Check if authentication is still valid (not expired)
+        if (parsedAuth.isAuthenticated && parsedAuth.expiry > now) {
+          setIsAuthenticated(true);
+        } else {
+          // Remove expired authentication
+          localStorage.removeItem('adminAuth');
+          setIsAuthenticated(false);
+        }
+      }
+    } catch (error) {
+      console.error('Error checking authentication:', error);
+      localStorage.removeItem('adminAuth');
+      setIsAuthenticated(false);
+    }
+    setIsCheckingAuth(false);
+  };
+
+  const handleLogin = (success) => {
+    setIsAuthenticated(success);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminAuth');
+    setIsAuthenticated(false);
+    setShowForm(false);
+    setCurrentProject(null);
+  };
+
+  // Show loading state while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="admin">
+        <div style={{ textAlign: 'center', padding: '60px 20px', color: 'white' }}>
+          <h2>Loading...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  // Show login form if not authenticated
+  if (!isAuthenticated) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   const emptyProject = {
     id: '',
@@ -147,12 +208,21 @@ const Admin = () => {
       }));
     }
   };
-
   const handleTagAdd = (tag) => {
     if (tag && !currentProject.tags.includes(tag)) {
       setCurrentProject(prev => ({
         ...prev,
         tags: [...prev.tags, tag]
+      }));
+    }
+  };
+
+  const handleToolAdd = (tool) => {
+    if (tool && !currentProject.tools.includes(tool)) {
+      setCurrentProject(prev => ({
+        ...prev,
+        tools: [...prev.tools, tool],
+        toolIcons: [...prev.toolIcons, tool] // Auto-sync toolIcons
       }));
     }
   };
@@ -220,10 +290,14 @@ const Admin = () => {
       )
     }));
   };
-
   return (
     <div className="admin">
-      <h1>Project Admin</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
+        <h1>Project Admin</h1>
+        <button className="admin-btn danger" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
         <div className="admin-actions">
         <button className="admin-btn" onClick={handleAddProject}>
           Add New Project
@@ -318,20 +392,24 @@ const Admin = () => {
             >
               Add Image
             </button>
-          </div>
-
-          <div className="form-group">
+          </div>          <div className="form-group">
             <label>Tags</label>
-            <input 
-              type="text" 
-              placeholder="Type tag and press Enter"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
+            <select 
+              onChange={(e) => {
+                if (e.target.value) {
                   handleTagAdd(e.target.value);
-                  e.target.value = '';
+                  e.target.value = ''; // Reset dropdown
                 }
               }}
-            />
+            >
+              <option value="">Select a tag to add...</option>
+              {availableTags
+                .filter(tag => !currentProject?.tags?.includes(tag))
+                .map(tag => (
+                  <option key={tag} value={tag}>{tag}</option>
+                ))
+              }
+            </select>
             <div className="tags-input">
               {currentProject?.tags?.map((tag, index) => (
                 <span key={index} className="tag-chip">
@@ -344,30 +422,30 @@ const Admin = () => {
 
           <div className="form-group">
             <label>Tools</label>
-            {currentProject?.tools?.map((tool, index) => (
-              <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '5px' }}>
-                <input 
-                  type="text" 
-                  value={tool} 
-                  onChange={(e) => handleArrayChange('tools', index, e.target.value)}
-                  placeholder="Tool name"
-                />
-                <button 
-                  type="button" 
-                  className="admin-btn danger"
-                  onClick={() => removeArrayItem('tools', index)}
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
-            <button 
-              type="button" 
-              className="admin-btn secondary"
-              onClick={() => addArrayItem('tools')}
+            <select 
+              onChange={(e) => {
+                if (e.target.value) {
+                  handleToolAdd(e.target.value);
+                  e.target.value = ''; // Reset dropdown
+                }
+              }}
             >
-              Add Tool
-            </button>
+              <option value="">Select a tool to add...</option>
+              {availableTools
+                .filter(tool => !currentProject?.tools?.includes(tool))
+                .map(tool => (
+                  <option key={tool} value={tool}>{tool}</option>
+                ))
+              }
+            </select>
+            <div className="tags-input">
+              {currentProject?.tools?.map((tool, index) => (
+                <span key={index} className="tag-chip">
+                  {tool}
+                  <button onClick={() => removeArrayItem('tools', index)}>×</button>
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Subpages Section */}

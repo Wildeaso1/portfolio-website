@@ -8,12 +8,15 @@ const Login = ({ onLogin }) => {
   });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  // Store credentials in environment variables or config
-  // For development, using hardcoded values
-  // In production, these should be environment variables
+  // Store credentials in environment variables
+  // For development, using fallback values
+  // In production, these should be environment variables from GitHub Secrets
   const ADMIN_USERNAME = process.env.REACT_APP_ADMIN_USERNAME || 'admin';
   const ADMIN_PASSWORD = process.env.REACT_APP_ADMIN_PASSWORD || 'portfolio2025';
+
+  // Log environment status (remove in production)
+  console.log('Environment:', process.env.NODE_ENV);
+  console.log('Using env credentials:', !!process.env.REACT_APP_ADMIN_USERNAME);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

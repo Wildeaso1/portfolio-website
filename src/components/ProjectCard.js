@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ToolIcon from './ToolIcon';
-import { getProjectImagePath } from '../utils/imageUtils';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
@@ -13,8 +12,11 @@ const ProjectCard = ({ project }) => {
     setIsImageError(true);
   };
 
-  // Get the correct image path
-  const imagePath = project.headerImage ? getProjectImagePath(project.headerImage) : null;
+  // Simple image path - just use PUBLIC_URL + the original path
+  const imagePath = project.headerImage ? `${process.env.PUBLIC_URL}${project.headerImage}` : null;
+  
+  // Debug: log the image path (remove this after testing)
+  console.log('Project:', project.title, 'Original path:', project.headerImage, 'Generated path:', imagePath);
 
   return (
     <div className="project-card">      <div className="project-image-container">

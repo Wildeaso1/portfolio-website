@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -17,7 +16,10 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="content">          <Routes>
-            <Route path="/" element={<Home />} />
+            {/* Redirect root to home */}
+            <Route path="/" element={<Navigate to="/home" replace />} />
+            
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />

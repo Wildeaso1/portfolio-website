@@ -14,3 +14,9 @@ export const getPublicImagePath = (imagePath) => {
   // For images in public folder
   return `${process.env.PUBLIC_URL}/images/${imagePath}`;
 };
+
+export const getProjectImagePath = (imagePath) => {
+  // Remove leading slash if present
+  const cleanPath = imagePath.startsWith('/images/') ? imagePath.substring(8) : imagePath;
+  return `${process.env.PUBLIC_URL}/images/${cleanPath}`;
+};

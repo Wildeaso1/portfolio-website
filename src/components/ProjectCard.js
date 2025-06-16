@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ToolIcon from './ToolIcon';
+import { getProjectImagePath } from '../utils/imageUtils';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
@@ -12,12 +13,14 @@ const ProjectCard = ({ project }) => {
     setIsImageError(true);
   };
 
+  // Get the correct image path
+  const imagePath = project.headerImage ? getProjectImagePath(project.headerImage) : null;
+
   return (
-    <div className="project-card">
-      <div className="project-image-container">
-        {!isImageError && project.headerImage ? (
+    <div className="project-card">      <div className="project-image-container">
+        {!isImageError && imagePath ? (
           <img 
-            src={project.headerImage} 
+            src={imagePath} 
             alt={`${project.title} header`} 
             className="project-image" 
             onError={handleImageError} // Attach the error handler

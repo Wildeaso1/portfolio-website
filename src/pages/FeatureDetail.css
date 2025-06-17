@@ -2,16 +2,16 @@
 
 /* Overall Content Padding */
 .content {
-  padding-top: 2%;
+  padding-top: 60px;
 }
 
 /* Feature Detail Section */
 .feature-detail {
-  padding: 60px 20px;
+  padding: 80px 20px 60px;
   max-width: 800px;
   margin: 0 auto;
-  color: white; /* Ensure text is visible against background */
-  background-color: #1d1925; /* Optional: Background color for better contrast */
+  color: white;
+  background-color: #1d1925;
   border-radius: 10px;
 }
 
@@ -20,7 +20,8 @@
   margin-bottom: 20px;
   text-align: center;
   color: white;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  line-height: 1.3;
 }
 
 /* Feature Description Paragraph */
@@ -227,11 +228,17 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .feature-detail {
-    padding: 40px 15px;
+    padding: 80px 15px 60px;
   }
 
   .feature-container h1 {
     font-size: 1.8rem;
+    margin-bottom: 18px;
+  }
+  
+  .feature-container p {
+    font-size: 1rem;
+    margin-bottom: 25px;
   }
 
   .carousel-button {
@@ -264,11 +271,17 @@
 
 @media (max-width: 480px) {
   .feature-detail {
-    padding: 30px 10px;
+    padding: 80px 10px 60px;
   }
 
   .feature-container h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .feature-container p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
   }
 
   .carousel-button {

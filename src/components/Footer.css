@@ -4,4 +4,21 @@
   color: #fff;
   text-align: center;
   padding: 20px 0;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 0;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 12px 0;
+    font-size: 0.8rem;
+  }
 }

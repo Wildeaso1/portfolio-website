@@ -5,6 +5,9 @@
   border-radius: 10px;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -14,6 +17,7 @@
 .project-image-container {
   width: 100%;
   height: 200px;
+  flex-shrink: 0;
 }
 
 .project-image {
@@ -31,41 +35,53 @@
   background-color: #1d1925;
   color: #fff;
   font-style: italic;
+  font-size: 0.9rem;
 }
 
 .project-content {
   padding: 20px;
   text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-content h2 {
   margin-bottom: 10px;
   font-size: 1.5rem;
+  line-height: 1.3;
 }
 
 .project-content p {
   font-size: 1rem;
   margin-bottom: 15px;
+  line-height: 1.5;
+  flex-grow: 1;
 }
 
 .project-tags {
   margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .project-tag {
   display: inline-block;
   background-color: #f0f0f0;
   color: #333;
-  padding: 5px 10px;
-  margin: 3px;
+  padding: 4px 8px;
   border-radius: 3px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .project-tools {
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .learn-more {
@@ -74,9 +90,91 @@
   color: #ff5733;
   font-weight: bold;
   transition: color 0.3s ease;
-  margin-top: 10px;
+  margin-top: 15px;
+  font-size: 0.95rem;
 }
 
 .learn-more:hover {
   color: #e04e2b;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .project-image-container {
+    height: 180px;
+  }
+  
+  .project-content {
+    padding: 15px;
+  }
+  
+  .project-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  
+  .project-content p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+  
+  .project-tags {
+    margin-bottom: 12px;
+    gap: 4px;
+  }
+  
+  .project-tag {
+    padding: 3px 6px;
+    font-size: 0.75rem;
+  }
+  
+  .project-tools {
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .learn-more {
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-image-container {
+    height: 160px;
+  }
+  
+  .project-content {
+    padding: 12px;
+  }
+  
+  .project-content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  
+  .project-content p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-tags {
+    margin-bottom: 10px;
+    gap: 3px;
+  }
+  
+  .project-tag {
+    padding: 2px 5px;
+    font-size: 0.7rem;
+  }
+  
+  .project-tools {
+    gap: 6px;
+    margin-top: 6px;
+  }
+  
+  .learn-more {
+    margin-top: 10px;
+    font-size: 0.85rem;
+  }
 }

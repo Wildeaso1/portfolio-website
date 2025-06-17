@@ -1,38 +1,102 @@
 .projects {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    
+  padding: 80px 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projects h1 {
+  margin-bottom: 40px;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.tags {
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tag-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.tag-btn:hover,
+.tag-btn.active {
+  background-color: #6a3c6b;
+  color: #fff;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding-bottom: 60px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .projects {
+    padding: 80px 15px 60px;
   }
   
   .projects h1 {
-    margin-bottom: 40px;
-  }
-  
-  .tags {
+    font-size: 2rem;
     margin-bottom: 30px;
   }
   
-  .tag-btn {
-    padding: 10px 15px;
-    margin: 5px;
-    border: none;
-    background-color: #eee;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  .tags {
+    margin-bottom: 25px;
+    gap: 8px;
   }
   
-  .tag-btn:hover,
-  .tag-btn.active {
-    background-color: #6a3c6b;
-    color: #fff;
+  .tag-btn {
+    padding: 8px 12px;
+    margin: 3px;
+    font-size: 0.85rem;
   }
   
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding-bottom: 60px; /* Ensures space below for the footer */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    padding-bottom: 50px;
   }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 80px 10px 60px;
+  }
+  
+  .projects h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .tags {
+    margin-bottom: 20px;
+    gap: 6px;
+  }
+  
+  .tag-btn {
+    padding: 6px 10px;
+    margin: 2px;
+    font-size: 0.8rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-bottom: 40px;
+  }
+}
